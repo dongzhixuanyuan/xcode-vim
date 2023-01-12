@@ -49,7 +49,7 @@ Commands are case-sensitive. A command of `N` means pressing `shift + n` on the 
 |alt-right|-|jump forward to end of word.|
 | ^h |-| Delete previous character from the character position.|
 | ^d |-|Delete character at current cursor position.|
-| ^k |-| Delete line where the cursor at.|
+| ^k |-| Delete to the end of current line.|
 | ^p |-| move up|
 | ^n |-| move down|
 | ^b |-| move left|
@@ -101,7 +101,14 @@ Vim uses `yank` as a naming convention analgous to the `copy` clipboard command.
 | Vim Input | Action |
 | :---: | :--- |
 | r | Replaces the character at the cursor position with the next input character. |
-| S | Clears all text on the current line and enters insert mode. |
+| s | Delete the character at the cursor position, and enter insert mode.|
+| S or cc | Clears all text on the current line and enters insert mode. |
+| C or c$ | "Cut to the end ".And Enter insert mode.|
+| ciw | Delete the word the corsor at, and enter insert mode.|
+| ce or cw| Modify word at the cursor postion.|
+| xp | move the character at the cursor position to the next posion.|
+
+
 
 #### Deleting Text
 | Vim Input | Xcode Standard | Action |
@@ -112,9 +119,6 @@ Vim uses `yank` as a naming convention analgous to the `copy` clipboard command.
 | D | – | Deletes characters to the end of the line from the current cursor position. |
 | x | – | Deletes the character at the current cursor position. |
 | X | Backspace | Deletes the previous character from the character position. | 
-|d`j`|-|Delete next line|
-|d`k`|-|Delete previous line|
-|J|-|Delete the blank between two lines.|
 
 
 #### Navigating Characters in Line
@@ -132,6 +136,8 @@ Vim uses `yank` as a naming convention analgous to the `copy` clipboard command.
 | :---: | :--- |
 | v`P` | Selects text up to the next position, `P`. e.g. `ve` selects from the cursor to the end of the word. | 
 | V | Selects the current line. Subsequent position commands will extend the selection. Very handy for beginning multi-line selections and edits. |
+| o | switch cursor between the start and end of the selected region.|
+| O | switch cursor the corner of the selected region.|
 
 #### Indentation
 `NOTE:` Xcode will drop the current selection after the action is performed, which makes these commands not as good as a standard Xcode indentation command with ⌘+(`[` or `]`) which retains the selection. Its really only useful for making the indent once, unlike the built-in action which can indent multiple times.
