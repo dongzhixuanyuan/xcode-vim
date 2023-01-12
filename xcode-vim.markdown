@@ -39,6 +39,8 @@ Commands are case-sensitive. A command of `N` means pressing `shift + n` on the 
 | E | - | jump forward to <ins>E</ins>nd of word, ignoring punctuation |
 | b | ⇧← | jump <ins>b</ins>ackward to start of word |
 | B | - | jump <ins>B</ins>ackward to start of word, ignoring punctuation |
+| ge | -| jump <ins>b</ins>ackward to end of previous word. |
+| gE | -| jump <ins>b</ins>ackward to end of previous word with ponctuations ignoring . |
 
 #### Special keys in Insert Mode
 | Vim Input | Xcode Standard | Action |
@@ -92,10 +94,14 @@ Vim uses `yank` as a naming convention analgous to the `copy` clipboard command.
 | :---: | :--- |
 | yy | Copies the current line and places it into a buffer that can be used with `p` to paste. |
 | y | Copies characters from the current cursor position. |
+| y$ | Copies the characters from the current cursor position to the end of current line. |
 | Y | Copies the entire line at the cursor position. |
 | p | Pastes characters copied from `y` or `d` commands at the current cursor position. |
 | P | Pastes characters copied from `y` or `d` commands before the current cursor position. |
 | J | Join the next line to current line,and insert one space between them.|
+| yw | Copy the word from current cursor postion to end of the word.|
+| yiw | Copy the whole word of the current cursor postion .|
+| yaw | Copy the whole word of the current cursor position and the previous and next blank.|
 
 #### Editing Text
 | Vim Input | Action |
@@ -114,11 +120,15 @@ Vim uses `yank` as a naming convention analgous to the `copy` clipboard command.
 | Vim Input | Xcode Standard | Action |
 | :---: | :---: | :--- |
 | d`P` | N/A | Pressing `d` begins a delete that matches a selection based on the next position command of `P`. For example, `dw` deletes all characters jumping forward to the start of the next word. Usable for most all cursor position commands such as `w`, `e`, `b`, `B`. |
-| dd | ⌘D | Deletes the current line. |
-| d`N` | N/A | Deletes `N` number of lines where `N` from the cursor position. e.g.: `d5` deletes the next 5 lines. |
-| D | – | Deletes characters to the end of the line from the current cursor position. |
-| x | – | Deletes the character at the current cursor position. |
-| X | Backspace | Deletes the previous character from the character position. | 
+| dd | ⌘D | Cut the current line. |
+| d`N` | N/A | Cut `N` number of lines where `N` from the cursor position. e.g.: `d5` cut the next 5 lines. |
+| `N`dd | N/A | Cut `N` number of lines where `N` from the cursor position. |
+| dw | Cut the word from current cursor position to then word's end. |
+| diw | Cut the whole word at the cursor postion. |
+| daw | Cut the whole word at the cursor postion and  the previous and next blank. |
+| D | – | Cut characters to the end of the line from the current cursor position. |
+| x | – | Cut the character at the current cursor position. |
+| X | Backspace | Cut the previous character from the character position. | 
 
 
 #### Navigating Characters in Line
@@ -138,6 +148,11 @@ Vim uses `yank` as a naming convention analgous to the `copy` clipboard command.
 | V | Selects the current line. Subsequent position commands will extend the selection. Very handy for beginning multi-line selections and edits. |
 | o | switch cursor between the start and end of the selected region.|
 | O | switch cursor the corner of the selected region.|
+| < | Intent lines(s) left. But once intent, lose selected area. |
+| > | Intent lines(s) right |
+| u | low case the selected character. |
+| U | Upper case the selected character. |
+| {visual}~ | changes the case of the selected characters. |
 
 #### Indentation
 `NOTE:` Xcode will drop the current selection after the action is performed, which makes these commands not as good as a standard Xcode indentation command with ⌘+(`[` or `]`) which retains the selection. Its really only useful for making the indent once, unlike the built-in action which can indent multiple times.
