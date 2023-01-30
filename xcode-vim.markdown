@@ -43,21 +43,22 @@ Commands are case-sensitive. A command of `N` means pressing `shift + n` on the 
 | gE | -| jump <ins>b</ins>ackward to end of previous word with ponctuations ignoring . |
 
 #### Special keys in Insert Mode
+'^' denote Control key.
 | Vim Input | Xcode Standard | Action |
 | :---: | :---: | :--- |
-|cmd-left|-|jump backword to where first not-blank character.|
+|cmd-left|-|jump backword to where first not-blank character of current line.|
 |alt-left|-|jump backward to start of word.|
 |cmd-right|-|jump forward to the end of current Line.|
 |alt-right|-|jump forward to end of word.|
 | ^h |-| Delete previous character from the character position.|
-| ^d |-|Delete character at current cursor position.|
+| ^d |-| Delete character at current cursor position.|
 | ^k |-| Delete to the end of current line.|
-| ^p |-| move up|
-| ^n |-| move down|
-| ^b |-| move left|
-| ^f |-| move right|
-| ^e |-| move to last character in line.|
-| ^a |-| move to first character in line.|
+| ^p |-| move up by one line. |
+| ^n |-| move down by one line. |
+| ^b |-| move left by one character. equals to left arrow key.|
+| ^f |-| move right by one character. equals to right arrow key. |
+| ^e |-| move to last character in line. the deference with 'cmd+right' is , 'cmd+right' jump to last not-blank character. |
+| ^a |-| move to first character in line. the deference wit 'cmd+left' is , 'cmd+left' jump to first not-blank character. |
 
 
 #### Scrolling the Viewport
@@ -73,6 +74,10 @@ Actions that scroll the code viewport without moving the cursor.
 | H | move cursor to top of viewport |
 | M | move cursor to middle of viewport |
 | L | move cursor to bottom of viewport |
+
+marker:zz == z⏎. In the stand vim keybinds, it's zz. In the same way, for zt and zb.
+
+
 
 #### Jumping the Cursor
 Actions that scroll the code viewport by moving the cursor.
@@ -110,8 +115,8 @@ Vim uses `yank` as a naming convention analgous to the `copy` clipboard command.
 | s | Delete the character at the cursor position, and enter insert mode.|
 | S or cc | Clears all text on the current line and enters insert mode. |
 | C or c$ | "Cut to the end ".And Enter insert mode.|
-| ciw | Delete the word the corsor at, and enter insert mode.|
-| ce or cw| Modify word at the cursor postion.|
+| ciw | Delete the whole  word the corsor at, and enter insert mode.|
+| ce or cw| Delete from the cursor postion to the end of the word where the cursor at.|
 | xp | move the character at the cursor position to the next posion.|
 
 
