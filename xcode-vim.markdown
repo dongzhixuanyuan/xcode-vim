@@ -130,6 +130,7 @@ Vim uses `yank` as a naming convention analgous to the `copy` clipboard command.
 | `N`dd | N/A | Cut `N` number of lines where `N` from the cursor position. |
 | dw | Cut the word from current cursor position to then word's end. |
 | diw | Cut the whole word at the cursor postion. |
+| di"| Cut the whole string content  between two double quotes marks. |
 | daw | Cut the whole word at the cursor postion and  the previous and next blank. |
 | D | – | Cut characters to the end of the line from the current cursor position. |
 | x | – | Cut the character at the current cursor position. |
