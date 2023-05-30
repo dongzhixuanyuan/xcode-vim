@@ -19,6 +19,8 @@ Commands are case-sensitive. A command of `N` means pressing `shift + n` on the 
 | j | ↓ | move down |
 | {N}j | - | move down N lines |
 | {N}k | - | move up N lines |
+| {N}h | - | move left N characters |
+| {N}l | - | move right N characters |
 | 0 | ↖ | move to first character in line. e.g. "move to column zero" |
 | $ | ↘ | move to last character in line |
 | ^ | ⌘← | move to first non-whitespace character in line |
@@ -34,10 +36,13 @@ Commands are case-sensitive. A command of `N` means pressing `shift + n` on the 
 | Vim Input | Xcode Standard | Action |
 | :---: | :---: | :--- |
 | w | ⇧→ | jump forward to start of <ins>w</ins>ord |
+|{N} w | ⇧→ | jump forward to  start of <ins>w</ins>ord,and repeats N times. |
 | W | ⌃→ | jump forward to start of <ins>W</ins>ord, ignoring punctuation |
 | e | - | jump forward to <ins>e</ins>nd of word |
+|{N} e | - | jump forward to <ins>e</ins>nd of word,and repeats N times. |
 | E | - | jump forward to <ins>E</ins>nd of word, ignoring punctuation |
 | b | ⇧← | jump <ins>b</ins>ackward to start of word |
+|{N} b | ⇧← | jump <ins>b</ins>ackward to start of word,and repeats N times. |
 | B | - | jump <ins>B</ins>ackward to start of word, ignoring punctuation |
 | ge | -| jump <ins>b</ins>ackward to end of previous word. |
 | gE | -| jump <ins>b</ins>ackward to end of previous word with ponctuations ignoring . |
@@ -116,6 +121,9 @@ Vim uses `yank` as a naming convention analgous to the `copy` clipboard command.
 | S or cc | Clears all text on the current line and enters insert mode. |
 | C or c$ | "Cut to the end ".And Enter insert mode.|
 | ciw | Delete the whole  word the corsor at, and enter insert mode.|
+| ci" | Delete the whole string content  between two double quotes marks,and entr insert mode. |
+| ci( | Delete the whole string content  between brackets,and enter insert mode. |
+| ci{ | Delete the whole string content  between brace,and enter insert mode. |
 | ce or cw| Delete from the cursor postion to the end of the word where the cursor at.|
 | xp | move the character at the cursor position to the next posion.|
 
@@ -131,6 +139,8 @@ Vim uses `yank` as a naming convention analgous to the `copy` clipboard command.
 | dw | Cut the word from current cursor position to then word's end. |
 | diw | Cut the whole word at the cursor postion. |
 | di"| Cut the whole string content  between two double quotes marks. |
+| di(| Cut the whole string content  between two brackets. |
+| di{| Cut the whole string content  between two braces. |
 | daw | Cut the whole word at the cursor postion and  the previous and next blank. |
 | D | – | Cut characters to the end of the line from the current cursor position. |
 | x | – | Cut the character at the current cursor position. |
